@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Salary - RXMiner</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0a0f1f, #1a1f35);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    h1 {
+      color: #4ade80;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #94a3b8;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+    input {
+      width: 80%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: 16px;
+    }
+    button {
+      background: #4ade80;
+      border: none;
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #22c55e;
+      transform: scale(1.05);
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+    a {
+      display: inline-block;
+      margin-top: 25px;
+      text-decoration: none;
+      color: #4ade80;
+      font-weight: 600;
+    }
+    footer {
+      margin-top: 40px;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Weekly Salary Calculator</h1>
+    <p>RXMiner Invite Reward System</p>
+
+    <input type="number" id="invites" placeholder="Enter your total invites">
+    <br>
+    <button onclick="calculateSalary()">Check Salary</button>
+
+    <div class="result" id="salaryResult"></div>
+
+    <a href="https://rxminer.in" target="_blank">Visit RXMiner.in</a>
+  </div>
+
+  <footer>© 2025 RXMiner | Weekly Invite Salary Program</footer>
+
+  <script>
+    function calculateSalary() {
+      const invites = parseInt(document.getElementById('invites').value);
+      let salary = 0;
+
+      if (invites >= 250) salary = 51000;
+      else if (invites >= 150) salary = 17051;
+      else if (invites >= 100) salary = 11000;
+      else if (invites >= 50) salary = 5100;
+      else if (invites >= 25) salary = 2150;
+      else if (invites >= 15) salary = 1050;
+      else if (invites >= 8) salary = 520;
+      else salary = 0;
+
+      const resultDiv = document.getElementById('salaryResult');
+      if (salary > 0) {
+        resultDiv.innerHTML = `🎉 Your Weekly Salary: ₹${salary}`;
+      } else {
+        resultDiv.innerHTML = `❌ Minimum 8 invites required to earn salary.`;
+      }
+    }
+  </script>
+
+</body>
+</html>
